@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimador de porcentaje de agua</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Estimador de porcentaje de agua</h1>
+    <form action="/predict" method="post">
+        <label for="snf">SNF:</label>
+        <input type="text" name="snf" required>
+        <br>
+        <label for="awm">AWM:</label>
+        <input type="text" name="awm" required>
+        <br>
+        <label for="lact">LACT:</label>
+        <input type="text" name="lact" required>
+        <br>
+        <label for="fat">FAT:</label>
+        <input type="text" name="fat" required>
+        <br>
+        <label for="protein">PROTEIN:</label>
+        <input type="text" name="protein" required>
+        <br>
+        <input type="submit" value="Realizar predicción">
+    </form>
+    {% if result %}
+    <p>Resultado de la predicción: {{ result }}%</p>
+    {% endif %}
+</body>
+</html>
